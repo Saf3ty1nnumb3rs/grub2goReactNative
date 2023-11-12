@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Meals2Go",
-    "slug": "Meals2Go",
-    "version": "1.0.0",
+    "name": "Grub2Go",
+    "slug": "Grub2Go",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
