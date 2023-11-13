@@ -1,6 +1,30 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "baseUrl": "src",
+    "target": "es6",
+    "strict": true,
+    "jsx": "react-native",
+    "esModuleInterop": true, // allows default imports from CommonJS modules
+    "skipLibCheck": true,
+    "paths": {
+      "*": ["./*"],
+      "utils/*": ["./utils/*"],
+      "hooks/*": ["./hooks/*"],
+      "components/*": ["./components/*"],
+      "features/*": ["./features/*"],
+      "theme/*": ["./theme/*"],
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js"
+  ],
+  "include": [
+    "src",
+    "**/*.ts",
+    "**/*.tsx",
+    "types/@declarations/*.d.ts",
+    "types/@types/*.d.ts"
+  ]
 }

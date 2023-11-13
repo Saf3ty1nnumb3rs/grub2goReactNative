@@ -5,5 +5,10 @@
     "quotes": ["error", "single", { "avoidEscape": true }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off"
+  }, 
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }

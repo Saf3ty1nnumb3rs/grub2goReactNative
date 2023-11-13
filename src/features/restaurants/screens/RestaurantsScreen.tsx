@@ -1,21 +1,27 @@
 import { useState } from 'react';
-import { SafeAreaView, StatusBar, View } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import styled from 'styled-components/native';
 import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
+import { Spacer } from 'components/Spacer/Spacer';
 
 // Styled Elements
-const ListView = styled(View)`
+const ListView = styled.View`
   flex: 1;
-  padding: 16px;
-  background-color: blue;
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
+const RestaurantList = styled(FlatList<RestaurantInfoProps>).attrs({
+  contentContainerStyle: {
+    padding: 16,
+  },
+})``;
 const SafeAreaScreen = styled(SafeAreaView)`
   flex: 1;
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
-const SearchView = styled(View)`
-  padding: 16px;
+const SearchView = styled.View`
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantsScreen = () => {
@@ -44,6 +50,15 @@ export const RestaurantsScreen = () => {
           }}
         />
       </ListView>
+      <RestaurantList
+        data={[]}
+        renderItem={({ item }) => (
+          <Spacer position="bottom" size="large">
+            <RestaurantInfoCard restaurant={item} />
+          </Spacer>
+        )}
+        keyExtractor={(item) => item.name}
+      />
     </SafeAreaScreen>
   );
 };
